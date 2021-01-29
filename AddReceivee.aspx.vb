@@ -1,13 +1,8 @@
-﻿
-Imports System.Data.SqlClient
-Imports swEDoc
-
-Partial Class AddReceive
+﻿Imports System.Data.SqlClient
+Partial Class AddReceivee
     Inherits System.Web.UI.Page
     Public sConString As String = ConfigurationManager.ConnectionStrings("ConnectionString").ConnectionString
-
-
-    Protected Sub AddReceive_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Protected Sub AddReceivee_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Session("Login") Is Nothing Then
             Response.Redirect("Signin.aspx")
         End If
@@ -34,13 +29,25 @@ Partial Class AddReceive
         End If
     End Sub
     Protected Sub btnAddRecei_Click(sender As Object, e As EventArgs)
-        Dim serv As apiEdoc = New apiEdoc()
-        Dim idfile As Integer = Integer.Parse(Session("idFile").ToString())
-        Dim email As String = txtEmail.Text
-        Dim res As Integer = serv.GuiVB_Capnhatchitietguinguoinhan(idfile, email)
+        Dim htky As String = drhtKy.SelectedItem.Text
+        Dim a As Integer
+        If htky = "Ký điện tử" Then
+            a = 1
+        ElseIf htky = "Ký số" Then
+            a = 2
+        ElseIf htky = "Xem" Then
+            a = 3
+        End If
 
-        'If res = 1 Then
-        Response.Redirect("AddSigntureField.aspx")
-        'End If
+        Dim idFile As Integer = Integer.Parse(Session("idFile").ToString())
+        Dim ttk As Integer = txtttKy.Text
+        Dim tkt As String = Session("Login").ToString()
+        Dim tkk As String = txtEmail.Text
+        Dim arr As String() = tkt.Split(",")
+        Dim serv As New swEDoc.apiEdoc
+        Dim res As Integer = serv.Thietlaptaikhoanky(idFile, tkk, ttk, htky, tkt)
+        If res = 1 Then
+            Response.Redirect("addsignturefield.aspx")
+        End If
     End Sub
 End Class

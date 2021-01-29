@@ -123,6 +123,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="TenVBGoc" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Vitriluu" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Taikhoantao" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="phanloaivb" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -139,9 +140,6 @@
             <s:element minOccurs="1" maxOccurs="1" name="idFile" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="Taikhoanky" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="Trinhtuky" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Toadodau" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Toadocuoi" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="Mamauvungky" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Hinhthucky" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Taikhoantao" type="s:string" />
           </s:sequence>
@@ -151,6 +149,28 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="ThietlaptaikhoankyResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Thietlapvungky">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idFile" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Taikhoanky" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Trinhtuky" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Hinhthucky" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Trangky" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Toadodau" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Toadocuoi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mamauvungky" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Taikhoantao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ThietlapvungkyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ThietlapvungkyResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -265,6 +285,7 @@
             <s:element minOccurs="1" maxOccurs="1" name="idFile" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="Taikhoanky" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Noidungphe" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Trangphe" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="Toadodau" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Toadocuoi" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="Vitriluu" type="s:string" />
@@ -399,6 +420,61 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="TaoYCKy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Taikhoan" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Linkfile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Info" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TaoYCKyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TaoYCKyResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Capnhatketquaky">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="taikhoan" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SignedFile" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CapnhatketquakyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CapnhatketquakyResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LayDSYeucauky">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="taikhoan" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LayDSYeucaukyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LayDSYeucaukyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="string" nillable="true" type="s:string" />
       <s:element name="int" type="s:int" />
       <s:element name="clThietlapphuongthucky" nillable="true" type="tns:clThietlapphuongthucky" />
@@ -465,6 +541,12 @@
   </wsdl:message>
   <wsdl:message name="ThietlaptaikhoankySoapOut">
     <wsdl:part name="parameters" element="tns:ThietlaptaikhoankyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ThietlapvungkySoapIn">
+    <wsdl:part name="parameters" element="tns:Thietlapvungky" />
+  </wsdl:message>
+  <wsdl:message name="ThietlapvungkySoapOut">
+    <wsdl:part name="parameters" element="tns:ThietlapvungkyResponse" />
   </wsdl:message>
   <wsdl:message name="Thietlapphuongthuckymobilesign_IDCTSSoapIn">
     <wsdl:part name="parameters" element="tns:Thietlapphuongthuckymobilesign_IDCTS" />
@@ -544,6 +626,24 @@
   <wsdl:message name="GetFilenameSoapOut">
     <wsdl:part name="parameters" element="tns:GetFilenameResponse" />
   </wsdl:message>
+  <wsdl:message name="TaoYCKySoapIn">
+    <wsdl:part name="parameters" element="tns:TaoYCKy" />
+  </wsdl:message>
+  <wsdl:message name="TaoYCKySoapOut">
+    <wsdl:part name="parameters" element="tns:TaoYCKyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CapnhatketquakySoapIn">
+    <wsdl:part name="parameters" element="tns:Capnhatketquaky" />
+  </wsdl:message>
+  <wsdl:message name="CapnhatketquakySoapOut">
+    <wsdl:part name="parameters" element="tns:CapnhatketquakyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LayDSYeucaukySoapIn">
+    <wsdl:part name="parameters" element="tns:LayDSYeucauky" />
+  </wsdl:message>
+  <wsdl:message name="LayDSYeucaukySoapOut">
+    <wsdl:part name="parameters" element="tns:LayDSYeucaukyResponse" />
+  </wsdl:message>
   <wsdl:message name="SendMailHttpGetIn">
     <wsdl:part name="emailnhan" type="s:string" />
     <wsdl:part name="Subject" type="s:string" />
@@ -586,6 +686,7 @@
     <wsdl:part name="TenVBGoc" type="s:string" />
     <wsdl:part name="Vitriluu" type="s:string" />
     <wsdl:part name="Taikhoantao" type="s:string" />
+    <wsdl:part name="phanloaivb" type="s:string" />
   </wsdl:message>
   <wsdl:message name="TaoVBHttpGetOut">
     <wsdl:part name="Body" element="tns:int" />
@@ -594,13 +695,24 @@
     <wsdl:part name="idFile" type="s:string" />
     <wsdl:part name="Taikhoanky" type="s:string" />
     <wsdl:part name="Trinhtuky" type="s:string" />
-    <wsdl:part name="Toadodau" type="s:string" />
-    <wsdl:part name="Toadocuoi" type="s:string" />
-    <wsdl:part name="Mamauvungky" type="s:string" />
     <wsdl:part name="Hinhthucky" type="s:string" />
     <wsdl:part name="Taikhoantao" type="s:string" />
   </wsdl:message>
   <wsdl:message name="ThietlaptaikhoankyHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ThietlapvungkyHttpGetIn">
+    <wsdl:part name="idFile" type="s:string" />
+    <wsdl:part name="Taikhoanky" type="s:string" />
+    <wsdl:part name="Trinhtuky" type="s:string" />
+    <wsdl:part name="Hinhthucky" type="s:string" />
+    <wsdl:part name="Trangky" type="s:string" />
+    <wsdl:part name="Toadodau" type="s:string" />
+    <wsdl:part name="Toadocuoi" type="s:string" />
+    <wsdl:part name="Mamauvungky" type="s:string" />
+    <wsdl:part name="Taikhoantao" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ThietlapvungkyHttpGetOut">
     <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="Thietlapphuongthuckymobilesign_IDCTSHttpGetIn">
@@ -650,6 +762,7 @@
     <wsdl:part name="idFile" type="s:string" />
     <wsdl:part name="Taikhoanky" type="s:string" />
     <wsdl:part name="Noidungphe" type="s:string" />
+    <wsdl:part name="Trangphe" type="s:string" />
     <wsdl:part name="Toadodau" type="s:string" />
     <wsdl:part name="Toadocuoi" type="s:string" />
     <wsdl:part name="Vitriluu" type="s:string" />
@@ -695,6 +808,30 @@
   <wsdl:message name="GetFilenameHttpGetOut">
     <wsdl:part name="Body" element="tns:DataTable" />
   </wsdl:message>
+  <wsdl:message name="TaoYCKyHttpGetIn">
+    <wsdl:part name="Code" type="s:string" />
+    <wsdl:part name="Taikhoan" type="s:string" />
+    <wsdl:part name="Linkfile" type="s:string" />
+    <wsdl:part name="Info" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TaoYCKyHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CapnhatketquakyHttpGetIn">
+    <wsdl:part name="code" type="s:string" />
+    <wsdl:part name="taikhoan" type="s:string" />
+    <wsdl:part name="Status" type="s:string" />
+    <wsdl:part name="SignedFile" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CapnhatketquakyHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="LayDSYeucaukyHttpGetIn">
+    <wsdl:part name="taikhoan" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LayDSYeucaukyHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
   <wsdl:message name="SendMailHttpPostIn">
     <wsdl:part name="emailnhan" type="s:string" />
     <wsdl:part name="Subject" type="s:string" />
@@ -737,6 +874,7 @@
     <wsdl:part name="TenVBGoc" type="s:string" />
     <wsdl:part name="Vitriluu" type="s:string" />
     <wsdl:part name="Taikhoantao" type="s:string" />
+    <wsdl:part name="phanloaivb" type="s:string" />
   </wsdl:message>
   <wsdl:message name="TaoVBHttpPostOut">
     <wsdl:part name="Body" element="tns:int" />
@@ -745,13 +883,24 @@
     <wsdl:part name="idFile" type="s:string" />
     <wsdl:part name="Taikhoanky" type="s:string" />
     <wsdl:part name="Trinhtuky" type="s:string" />
-    <wsdl:part name="Toadodau" type="s:string" />
-    <wsdl:part name="Toadocuoi" type="s:string" />
-    <wsdl:part name="Mamauvungky" type="s:string" />
     <wsdl:part name="Hinhthucky" type="s:string" />
     <wsdl:part name="Taikhoantao" type="s:string" />
   </wsdl:message>
   <wsdl:message name="ThietlaptaikhoankyHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ThietlapvungkyHttpPostIn">
+    <wsdl:part name="idFile" type="s:string" />
+    <wsdl:part name="Taikhoanky" type="s:string" />
+    <wsdl:part name="Trinhtuky" type="s:string" />
+    <wsdl:part name="Hinhthucky" type="s:string" />
+    <wsdl:part name="Trangky" type="s:string" />
+    <wsdl:part name="Toadodau" type="s:string" />
+    <wsdl:part name="Toadocuoi" type="s:string" />
+    <wsdl:part name="Mamauvungky" type="s:string" />
+    <wsdl:part name="Taikhoantao" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ThietlapvungkyHttpPostOut">
     <wsdl:part name="Body" element="tns:int" />
   </wsdl:message>
   <wsdl:message name="Thietlapphuongthuckymobilesign_IDCTSHttpPostIn">
@@ -801,6 +950,7 @@
     <wsdl:part name="idFile" type="s:string" />
     <wsdl:part name="Taikhoanky" type="s:string" />
     <wsdl:part name="Noidungphe" type="s:string" />
+    <wsdl:part name="Trangphe" type="s:string" />
     <wsdl:part name="Toadodau" type="s:string" />
     <wsdl:part name="Toadocuoi" type="s:string" />
     <wsdl:part name="Vitriluu" type="s:string" />
@@ -846,6 +996,30 @@
   <wsdl:message name="GetFilenameHttpPostOut">
     <wsdl:part name="Body" element="tns:DataTable" />
   </wsdl:message>
+  <wsdl:message name="TaoYCKyHttpPostIn">
+    <wsdl:part name="Code" type="s:string" />
+    <wsdl:part name="Taikhoan" type="s:string" />
+    <wsdl:part name="Linkfile" type="s:string" />
+    <wsdl:part name="Info" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TaoYCKyHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CapnhatketquakyHttpPostIn">
+    <wsdl:part name="code" type="s:string" />
+    <wsdl:part name="taikhoan" type="s:string" />
+    <wsdl:part name="Status" type="s:string" />
+    <wsdl:part name="SignedFile" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CapnhatketquakyHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="LayDSYeucaukyHttpPostIn">
+    <wsdl:part name="taikhoan" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LayDSYeucaukyHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
   <wsdl:portType name="apiEdocSoap">
     <wsdl:operation name="SendMail">
       <wsdl:input message="tns:SendMailSoapIn" />
@@ -882,6 +1056,10 @@
     <wsdl:operation name="Thietlaptaikhoanky">
       <wsdl:input message="tns:ThietlaptaikhoankySoapIn" />
       <wsdl:output message="tns:ThietlaptaikhoankySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Thietlapvungky">
+      <wsdl:input message="tns:ThietlapvungkySoapIn" />
+      <wsdl:output message="tns:ThietlapvungkySoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Thietlapphuongthuckymobilesign_IDCTS">
       <wsdl:input message="tns:Thietlapphuongthuckymobilesign_IDCTSSoapIn" />
@@ -935,6 +1113,18 @@
       <wsdl:input message="tns:GetFilenameSoapIn" />
       <wsdl:output message="tns:GetFilenameSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="TaoYCKy">
+      <wsdl:input message="tns:TaoYCKySoapIn" />
+      <wsdl:output message="tns:TaoYCKySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Capnhatketquaky">
+      <wsdl:input message="tns:CapnhatketquakySoapIn" />
+      <wsdl:output message="tns:CapnhatketquakySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LayDSYeucauky">
+      <wsdl:input message="tns:LayDSYeucaukySoapIn" />
+      <wsdl:output message="tns:LayDSYeucaukySoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="apiEdocHttpGet">
     <wsdl:operation name="SendMail">
@@ -964,6 +1154,10 @@
     <wsdl:operation name="Thietlaptaikhoanky">
       <wsdl:input message="tns:ThietlaptaikhoankyHttpGetIn" />
       <wsdl:output message="tns:ThietlaptaikhoankyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Thietlapvungky">
+      <wsdl:input message="tns:ThietlapvungkyHttpGetIn" />
+      <wsdl:output message="tns:ThietlapvungkyHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="Thietlapphuongthuckymobilesign_IDCTS">
       <wsdl:input message="tns:Thietlapphuongthuckymobilesign_IDCTSHttpGetIn" />
@@ -1017,6 +1211,18 @@
       <wsdl:input message="tns:GetFilenameHttpGetIn" />
       <wsdl:output message="tns:GetFilenameHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="TaoYCKy">
+      <wsdl:input message="tns:TaoYCKyHttpGetIn" />
+      <wsdl:output message="tns:TaoYCKyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Capnhatketquaky">
+      <wsdl:input message="tns:CapnhatketquakyHttpGetIn" />
+      <wsdl:output message="tns:CapnhatketquakyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LayDSYeucauky">
+      <wsdl:input message="tns:LayDSYeucaukyHttpGetIn" />
+      <wsdl:output message="tns:LayDSYeucaukyHttpGetOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="apiEdocHttpPost">
     <wsdl:operation name="SendMail">
@@ -1046,6 +1252,10 @@
     <wsdl:operation name="Thietlaptaikhoanky">
       <wsdl:input message="tns:ThietlaptaikhoankyHttpPostIn" />
       <wsdl:output message="tns:ThietlaptaikhoankyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Thietlapvungky">
+      <wsdl:input message="tns:ThietlapvungkyHttpPostIn" />
+      <wsdl:output message="tns:ThietlapvungkyHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="Thietlapphuongthuckymobilesign_IDCTS">
       <wsdl:input message="tns:Thietlapphuongthuckymobilesign_IDCTSHttpPostIn" />
@@ -1098,6 +1308,18 @@
     <wsdl:operation name="GetFilename">
       <wsdl:input message="tns:GetFilenameHttpPostIn" />
       <wsdl:output message="tns:GetFilenameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TaoYCKy">
+      <wsdl:input message="tns:TaoYCKyHttpPostIn" />
+      <wsdl:output message="tns:TaoYCKyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Capnhatketquaky">
+      <wsdl:input message="tns:CapnhatketquakyHttpPostIn" />
+      <wsdl:output message="tns:CapnhatketquakyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LayDSYeucauky">
+      <wsdl:input message="tns:LayDSYeucaukyHttpPostIn" />
+      <wsdl:output message="tns:LayDSYeucaukyHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="apiEdocSoap" type="tns:apiEdocSoap">
@@ -1176,6 +1398,15 @@
     </wsdl:operation>
     <wsdl:operation name="Thietlaptaikhoanky">
       <soap:operation soapAction="http://tempuri.org/Thietlaptaikhoanky" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Thietlapvungky">
+      <soap:operation soapAction="http://tempuri.org/Thietlapvungky" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1300,6 +1531,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="TaoYCKy">
+      <soap:operation soapAction="http://tempuri.org/TaoYCKy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Capnhatketquaky">
+      <soap:operation soapAction="http://tempuri.org/Capnhatketquaky" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LayDSYeucauky">
+      <soap:operation soapAction="http://tempuri.org/LayDSYeucauky" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="apiEdocSoap12" type="tns:apiEdocSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1377,6 +1635,15 @@
     </wsdl:operation>
     <wsdl:operation name="Thietlaptaikhoanky">
       <soap12:operation soapAction="http://tempuri.org/Thietlaptaikhoanky" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Thietlapvungky">
+      <soap12:operation soapAction="http://tempuri.org/Thietlapvungky" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1501,6 +1768,33 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="TaoYCKy">
+      <soap12:operation soapAction="http://tempuri.org/TaoYCKy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Capnhatketquaky">
+      <soap12:operation soapAction="http://tempuri.org/Capnhatketquaky" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LayDSYeucauky">
+      <soap12:operation soapAction="http://tempuri.org/LayDSYeucauky" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="apiEdocHttpGet" type="tns:apiEdocHttpGet">
     <http:binding verb="GET" />
@@ -1560,6 +1854,15 @@
     </wsdl:operation>
     <wsdl:operation name="Thietlaptaikhoanky">
       <http:operation location="/Thietlaptaikhoanky" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Thietlapvungky">
+      <http:operation location="/Thietlapvungky" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -1677,6 +1980,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetFilename">
       <http:operation location="/GetFilename" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TaoYCKy">
+      <http:operation location="/TaoYCKy" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Capnhatketquaky">
+      <http:operation location="/Capnhatketquaky" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LayDSYeucauky">
+      <http:operation location="/LayDSYeucauky" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -1750,6 +2080,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Thietlapvungky">
+      <http:operation location="/Thietlapvungky" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Thietlapphuongthuckymobilesign_IDCTS">
       <http:operation location="/Thietlapphuongthuckymobilesign_IDCTS" />
       <wsdl:input>
@@ -1860,6 +2199,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetFilename">
       <http:operation location="/GetFilename" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TaoYCKy">
+      <http:operation location="/TaoYCKy" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Capnhatketquaky">
+      <http:operation location="/Capnhatketquaky" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LayDSYeucauky">
+      <http:operation location="/LayDSYeucauky" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>

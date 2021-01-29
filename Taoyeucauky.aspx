@@ -140,9 +140,9 @@
 
 
 
-        <dx:ASPxCallback ID="cpSave" runat="server" ClientInstanceName="cpsavedata" OnCallback="cpSave_Callback">
+<%--        <dx:ASPxCallback ID="cpSave" runat="server" ClientInstanceName="cpsavedata" OnCallback="cpSave_Callback">
             <ClientSideEvents CallbackComplete="EndSaveData" />
-        </dx:ASPxCallback>
+        </dx:ASPxCallback>--%>
 
 
 

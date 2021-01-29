@@ -1,12 +1,21 @@
 ﻿<%@ Page Language="VB" AutoEventWireup="false" MasterPageFile="~/MasterPage.master" CodeFile="Index.aspx.vb" Inherits="Index" %>
 
+<%@ Register Assembly="DevExpress.Web.Bootstrap.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
+
 <%@ Register Assembly="DevExpress.Web.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .aligntext {
+            text-align: left
+        }
+    </style>
     <div class="w-layout-grid dashboard-grid">
         <div id="w-node-339fecbc6fd0-66c5cdc4" class="menu-left">
-            <a href="UploadFile.aspx" class="add-file-button w-button">Tạo tài liệu mới</a>
+            <a href="UploadFile.aspx" class="add-file-button w-button">
+                <img src="Content/images/new file icon.png" class="margin-icon" style="padding-right: 5px" alt="icon" />
+                Tạo tài liệu mới</a>
             <div
                 class="state-dropdown"
                 style="margin-top: 0px; margin-bottom: 0px; padding-left: 0px">
@@ -117,11 +126,9 @@
                 <div class="heading-text">Tất cả tài liệu</div>
                 <div class="div-block-16"></div>
             </div>
-
             <asp:Panel ID="pnDanhsach" runat="server">
                 <dx:ASPxGridView ID="gridDanhsach" runat="server" Theme="Material" Width="100%" CssClass="text-left" OnCustomUnboundColumnData="gridDanhsach_CustomUnboundColumnData" OnCustomColumnDisplayText="gridDanhsach_CustomColumnDisplayText" ClientInstanceName="griddagui" AutoGenerateColumns="false">
                     <Columns>
-
                         <dx:GridViewDataColumn Caption="">
                             <DataItemTemplate>
                                 <dx:ASPxCheckBox runat="server" CssClass="form-check-input"></dx:ASPxCheckBox>
@@ -129,16 +136,16 @@
                         </dx:GridViewDataColumn>
                         <dx:GridViewDataColumn FieldName="TenVBGoc" Caption="Tiêu đề"></dx:GridViewDataColumn>
                         <dx:GridViewDataDateColumn FieldName="Ngaytao" Caption="Thời gian" PropertiesDateEdit-DisplayFormatString="{0:dd/MM/yyyy HH:mm}"></dx:GridViewDataDateColumn>
-                        <dx:GridViewDataColumn FieldName="TrangthaiVB" Caption="Trạng thái">
+                        <dx:GridViewDataColumn FieldName="TrangthaiVB" Caption="Trạng thái" CellStyle-CssClass="aligntext">
                         </dx:GridViewDataColumn>
-
-                        <%-- <dx:GridViewDataColumn Caption="Chức năng">
-                                        <DataItemTemplate>
-                                            <dx:ASPxButton ID="btnXem" runat="server" Text="Xem" OnInit="btnXem_Init" RenderMode="Link" ClientEnabled="true" AutoPostBack="false">
+                        <dx:GridViewDataColumn Caption="">
+                            <DataItemTemplate>
+                                <dx:ASPxImage ID="ASPxImage1" runat="server" ShowLoadingImage="true"></dx:ASPxImage>
+                                <%--     <dx:ASPxButton ID="btnXem" runat="server" Text="Xem" OnInit="btnXem_Init" RenderMode="Link" ClientEnabled="true" AutoPostBack="false">
                                                 <ClientSideEvents Click="Viewfile" />
-                                            </dx:ASPxButton>
-                                        </DataItemTemplate>
-                                    </dx:GridViewDataColumn>--%>
+                                            </dx:ASPxButton>--%>
+                            </DataItemTemplate>
+                        </dx:GridViewDataColumn>
                     </Columns>
                     <SettingsPager PageSize="10" Mode="ShowPager" Position="Bottom" />
                     <Styles Footer-Font-Bold="true" Footer-ForeColor="Black">
@@ -149,4 +156,12 @@
             </asp:Panel>
         </div>
     </div>
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#flip").click(function () {
+                $("#panel").slideToggle("slow");
+            });
+        });
+    </script>
 </asp:Content>

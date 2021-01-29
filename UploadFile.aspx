@@ -33,28 +33,35 @@
             <div class="step-tab">
                 <div class="done---step">
                     <div class="dot-step">
-                        <img src="Content/images/Group-14876.svg" loading="lazy" alt=""></div>
+                        <img src="Content/images/Group-14876.svg" loading="lazy" alt="">
+                    </div>
                     <div class="body-text-13 blue medium">Tải lên</div>
                 </div>
                 <div class="spacing---step">
-                    <img src="Content/images/Group-14878.svg" loading="lazy" alt=""></div>
+                    <img src="Content/images/Group-14878.svg" loading="lazy" alt="">
+                </div>
                 <div class="non-step">
                     <div class="dot-step">
-                        <img src="Content/images/Group-14877.svg" loading="lazy" alt=""></div>
+                        <img src="Content/images/Group-14877.svg" loading="lazy" alt="">
+                    </div>
                     <div class="body-text-13 grey">Thêm người nhận</div>
                 </div>
                 <div class="spacing---step">
-                    <img src="Content/images/Group-14878.svg" loading="lazy" alt=""></div>
+                    <img src="Content/images/Group-14878.svg" loading="lazy" alt="">
+                </div>
                 <div class="non-step">
                     <div class="dot-step">
-                        <img src="Content/images/Group-14877.svg" loading="lazy" alt=""></div>
+                        <img src="Content/images/Group-14877.svg" loading="lazy" alt="">
+                    </div>
                     <div class="body-text-13 grey">Gán trường ký</div>
                 </div>
                 <div class="spacing---step">
-                    <img src="Content/images/Group-14878.svg" loading="lazy" alt=""></div>
+                    <img src="Content/images/Group-14878.svg" loading="lazy" alt="">
+                </div>
                 <div class="non-step">
                     <div class="dot-step">
-                        <img src="Content/images/Group-14877.svg" loading="lazy" alt=""></div>
+                        <img src="Content/images/Group-14877.svg" loading="lazy" alt="">
+                    </div>
                     <div class="body-text-13 grey">Xác nhận và hoàn tất</div>
                 </div>
             </div>
@@ -99,11 +106,11 @@
                                 thể tải lên tài liêu có định dạng .pdf/ .doc/ .docx/ .jpg/ .png
                             </div>
                         </div>
-                          <a id="upload-file-btn" href="#" class="button-3 w-button">Tải lên</a>
-                        <asp:FileUpload ID="FileUpload1" runat="server" CssClass="w-hidden"/>
-                   
-                      
-                          <input id="upload-file-input" name="upload-file" accept=".pdf,.doc,.docx,.jpg,.png" type="file" class="w-hidden" />
+                        <a id="upload-file-btn" href="#" class="button-3 w-button">Tải lên</a>
+                        <asp:FileUpload ID="FileUpload1" runat="server" CssClass="w-hidden" />
+                     <%--   <input type="text" id="newname" />--%>
+                        <input id="upload-file-input" name="upload-file" accept=".pdf,.doc,.docx,.jpg,.png" type="file" class="w-hidden" />
+                     <%--   <div id="output"></div>--%>
                     </div>
                     <div class="div-block-15"></div>
                     <div class="div-block-14">
@@ -112,11 +119,14 @@
                         </div>
                         <div class="div-block-9">
                             <div class="div-block-10">
-                                <img src="Content/images/Group-15049.svg" loading="lazy" alt=""></div>
+                                <img src="Content/images/Group-15049.svg" loading="lazy" alt="">
+                            </div>
                             <div class="div-block-11">
-                                <img src="Content/images/Group-15048.svg" loading="lazy" alt=""></div>
+                                <img src="Content/images/Group-15048.svg" loading="lazy" alt="">
+                            </div>
                             <div>
-                                <img src="Content/images/Group-15047.svg" loading="lazy" alt=""></div>
+                                <img src="Content/images/Group-15047.svg" loading="lazy" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -124,7 +134,8 @@
                     <div class="card-ui">
                         <div class="pdf-content">
                             <div class="icon-card">
-                                <img src="Content/images/File-Card-Icon.png" loading="lazy" alt=""></div>
+                                <img src="Content/images/File-Card-Icon.png" loading="lazy" alt="">
+                            </div>
                             <div class="pdf-card-content">
                                 <div id="file-name" class="text-block-5"></div>
                                 <div id="file-size" class="text-block-6"></div>
@@ -137,9 +148,9 @@
                                         loading="lazy" alt="function">
                                 </div>
                                 <nav class="w-dropdown-list">
-                                    <a href="#" class="w-dropdown-link">Link 1</a>
-                                    <a href="#" class="w-dropdown-link">Link 2</a>
-                                    <a href="#" class="w-dropdown-link">Link 3</a>
+                                    <a href="#" id="renamefile" class="w-dropdown-link">Đổi tên tài liệu</a>
+                                    <a href="#" class="w-dropdown-link">Xóa tài liệu</a>
+                                    <a href="#" onclick="window.location.href='UploadFile.aspx'" class="w-dropdown-link">Tải lại tài liệu</a>
                                 </nav>
                             </div>
                         </div>
@@ -148,8 +159,8 @@
                 <div class="upload-file-button">
                     <a href="upload-file.html" aria-current="page" class="back-button hiding w-button w--current">Quay
                         lại</a>
-                    <asp:Button ID="btnUpload" runat="server" Text="Tiếp tục" CssClass="button-4 w-button" OnClick="btnUpload_Click"/>
-                   <%-- <button type="submit" class="button-4 w-button">Tiếp tục</button>--%>
+                    <asp:Button ID="btnUpload" runat="server" Text="Tiếp tục" CssClass="button-4 w-button" OnClick="btnUpload_Click" />
+                    <%-- <button type="submit" class="button-4 w-button">Tiếp tục</button>--%>
                 </div>
 
             </div>
@@ -182,62 +193,60 @@
         <script src="Scripts/js/main.js"></script>
         <script type="text/javascript">
             (function uploadFileClickHandle() {
-    var uploadFileBtn = document.querySelector("#upload-file-btn");
-    var uploadFileInput = document.querySelector("#FileUpload1");
-    var fileName = document.querySelector("#file-name");
-    var cardPDF = document.querySelector("#card-pdf");
-    var dropArea = document.querySelector("#drop-area");
-    var fileSize = document.querySelector("#file-size");
+                var uploadFileBtn = document.querySelector("#upload-file-btn");
+                var uploadFileInput = document.querySelector("#FileUpload1");
+                var fileName = document.querySelector("#file-name");
+                var cardPDF = document.querySelector("#card-pdf");
+                var dropArea = document.querySelector("#drop-area");
+                var fileSize = document.querySelector("#file-size");
+                function formatBytes(bytes, decimals = 2) {
+                    if (bytes === 0) return '0 Bytes';
+                    const k = 1024;
+                    const dm = decimals < 0 ? 0 : decimals;
+                    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
 
-    function formatBytes(bytes, decimals = 2) {
-        if (bytes === 0) return '0 Bytes';
+                    const i = Math.floor(Math.log(bytes) / Math.log(k));
 
-        const k = 1024;
-        const dm = decimals < 0 ? 0 : decimals;
-        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+                    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+                }
 
-        const i = Math.floor(Math.log(bytes) / Math.log(k));
+                function setText(v) {
+                    fileSize.innerHTML = formatBytes(v);
+                }
 
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
-    }
+                uploadFileBtn.addEventListener("click", function () {
+                    uploadFileInput.click();
+                });
 
-    function setText(v){
-        fileSize.innerHTML = formatBytes(v);
-    }
+                uploadFileInput.addEventListener("change", function () {
+                    dropArea.style.display = "none";
+                    cardPDF.style.display = "block";
+                    fileName.textContent = this.files[0].name;
+                    setText(this.files[0].size);
+                });
+            })();
+            (function dragAndDropUploadHandle() {
+                var dropArea = document.getElementById("drop-area");
 
-    uploadFileBtn.addEventListener("click", function () {
-        uploadFileInput.click();
-    });
+                // dropArea.addEventListener("dragenter", handlerFunction);
+                // dropArea.addEventListener("dragleave", handlerFunction);
+                dropArea.addEventListener("dragover", handlerFunction);
+                dropArea.addEventListener("drop", handlerFunction);
 
-    uploadFileInput.addEventListener("change", function () {
-        dropArea.style.display = "none";
-        cardPDF.style.display = "block";
-        fileName.textContent = this.files[0].name;
-        setText(this.files[0].size);
-    });
-})();
-(function dragAndDropUploadHandle() {
-    var dropArea = document.getElementById("drop-area");
+                function handlerFunction(e) {
+                    e.preventDefault(); // khong chay event mac dinh khi keo tha (mo file)
+                    e.stopPropagation(); // len google doc
+                    console.log(e, this);
 
-    // dropArea.addEventListener("dragenter", handlerFunction);
-    // dropArea.addEventListener("dragleave", handlerFunction);
-    dropArea.addEventListener("dragover", handlerFunction);
-    dropArea.addEventListener("drop", handlerFunction);
+                    if (!e.dataTransfer || e.dataTransfer.files.length < 1) return;
 
-    function handlerFunction(e) {
-        e.preventDefault(); // khong chay event mac dinh khi keo tha (mo file)
-        e.stopPropagation(); // len google doc
-        console.log(e, this);
+                    // var files = e.dataTransfer.files;
 
-        if (!e.dataTransfer || e.dataTransfer.files.length < 1) return;
+                    // files.forEach(function(file) {
 
-        // var files = e.dataTransfer.files;
-
-        // files.forEach(function(file) {
-
-        // })
-    }
-})();
+                    // })
+                }
+            })();
 
 
         </script>

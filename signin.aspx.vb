@@ -52,6 +52,8 @@ Partial Class signin
                     lblError.Text = "Tài khoản đang bị khóa"
                 ElseIf res = -4 Then
                     lblError.Text = "Tài khoản đã nhập sai quá 5 lần và đang bị khóa"
+                ElseIf res = -5 Then
+                    lblError.Text = "Sai thông tin đăng nhập"
                 ElseIf res = 0 Then
                     lblError.Text = "Không tồn tại tài khoản"
                 End If

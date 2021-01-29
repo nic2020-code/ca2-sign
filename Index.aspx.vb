@@ -39,7 +39,6 @@ Partial Class Index
     End Sub
     Protected Sub gridDanhsach_CustomColumnDisplayText(sender As Object, e As DevExpress.Web.ASPxGridViewColumnDisplayTextEventArgs)
         If e.Column.FieldName = "TrangthaiVB" Then
-
             If e.Value = 0 Then
                 e.DisplayText = "Bản nháp"
             ElseIf e.Value = 1 Then
@@ -54,6 +53,8 @@ Partial Class Index
                 e.DisplayText = "Hoàn thành"
             End If
         End If
+
     End Sub
+
 
 End Class

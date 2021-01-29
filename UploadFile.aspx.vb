@@ -116,10 +116,10 @@ Partial Class UploadFile
             End If
             Dim url As String = HttpContext.Current.Request.Url.Scheme & "://" & HttpContext.Current.Request.Url.Authority
             Dim serv As New swEDoc.apiEdoc
-            Dim idfile As Integer = serv.TaoVB(tengoc, newfile, taikhoan)
+            Dim idfile As Integer = serv.TaoVB(tengoc, newfile, taikhoan, 0)
             Session("idFile") = idfile
             Session("user") = taikhoan
-            Response.Redirect("AddReceive.aspx")
+            Response.Redirect("AddReceivee.aspx")
         End If
         'e.CallbackData = idfile & "|" & url & "/FilePDF/" & taikhoan & "/Fileinput/" & Path.GetFileName(newfile)
         'aspxUpload.JSProperties("idfile") = idfile

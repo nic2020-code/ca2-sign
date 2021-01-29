@@ -29,13 +29,7 @@ Partial Class Taoyeucauky
         ext = Path.GetExtension(e.UploadedFile.FileName)
         Dim temp As String() = fullname.Split(".")
         fileinput = drname & temp(0) & "_" & Path.GetRandomFileName & ext
-
-
         e.UploadedFile.SaveAs(fileinput)
-
-
-
-
         'Dim drname As String = Server.MapPath("FilePDF/")
         'If Not Directory.Exists(drname) Then
         '    Directory.CreateDirectory(drname)
@@ -43,19 +37,13 @@ Partial Class Taoyeucauky
         'Dim ext, name, fullname As String
         'fullname = e.UploadedFile.FileName
         'Dim temp As String() = fullname.Split(".")
-
         'ext = Path.GetExtension(e.UploadedFile.FileName)
         'name = temp(0) & "_" & Path.GetRandomFileName & ".pdf"
         'Dim filePath As String = Server.MapPath("FilePDF/")
-
         'e.UploadedFile.SaveAs(newfile)
-
         Dim tengoc, newfile As String
         tengoc = fullname
         newfile = drname & temp(0) & "_" & Path.GetRandomFileName & ".pdf"
-
-
-
         If ext = ".pdf" Then
             If System.IO.File.Exists(fileinput) = True Then
                 System.IO.File.Copy(fileinput, newfile)
@@ -64,7 +52,6 @@ Partial Class Taoyeucauky
             End If
         ElseIf ext = ".docx" Then
             If System.IO.File.Exists(fileinput) = True Then
-
                 Dim document As New Document()
                 document.LoadFromFile(fileinput)
                 'Convert Word to PDF                    
@@ -84,7 +71,6 @@ Partial Class Taoyeucauky
         ElseIf ext = ".xls" Then
             If System.IO.File.Exists(fileinput) = True Then
                 Dim workbook As New Spire.Xls.Workbook()
-
                 workbook.LoadFromFile(fileinput)
                 workbook.SaveToFile(newfile, Spire.Xls.FileFormat.PDF)
                 fn = newfile
@@ -93,7 +79,6 @@ Partial Class Taoyeucauky
         ElseIf ext = ".xlsx" Then
             If System.IO.File.Exists(fileinput) = True Then
                 Dim workbook As New Spire.Xls.Workbook()
-
                 workbook.LoadFromFile(fileinput)
                 workbook.SaveToFile(newfile, Spire.Xls.FileFormat.PDF)
                 fn = newfile
@@ -136,14 +121,9 @@ Partial Class Taoyeucauky
             fn = newfile
             'PdfViewer1.LoadDocument(newfile)
         End If
-
         Dim url As String = HttpContext.Current.Request.Url.Scheme & "://" & HttpContext.Current.Request.Url.Authority
-
-
-
-
         Dim serv As New swEDoc.apiEdoc
-        Dim idfile As Integer = serv.TaoVB(tengoc, newfile, taikhoan)
+        Dim idfile As Integer = serv.TaoVB(tengoc, newfile, taikhoan, 0)
         Session("idFile") = idfile
         Session("user") = taikhoan
         e.CallbackData = idfile & "|" & url & "/FilePDF/" & taikhoan & "/Fileinput/" & Path.GetFileName(newfile)
@@ -152,27 +132,26 @@ Partial Class Taoyeucauky
     End Sub
 
 
-    Protected Sub cpSave_Callback(source As Object, e As DevExpress.Web.CallbackEventArgs)
-        Dim serv As New swEDoc.apiEdoc
-        Dim res As Integer = 0
+    'Protected Sub cpSave_Callback(source As Object, e As DevExpress.Web.CallbackEventArgs)
+    '    Dim serv As New swEDoc.apiEdoc
+    '    Dim res As Integer = 0
 
-        'Dim idfile As Integer = Convert.ToInt32(Session("idFile").ToString)
-        Dim idfile As Integer = Convert.ToInt32(hdIDfile("value").ToString)
-        If cmbNguoinhan.Tokens.Count > 0 Then
-            Dim i As Integer
-            Dim arr As String() = cmbNguoinhan.Value.ToString.Split(",")
-            For i = 0 To arr.Count - 1
-                res = serv.Thietlaptaikhoanky(idfile, arr(i), 0, String.Empty, String.Empty, String.Empty, String.Empty, Session("user").ToString)
-                serv.GuiVB_Capnhatchitietguinguoinhan(idfile, arr(i))
-            Next
-            serv.GuiVB_CapnhatTTVB(idfile)
-        End If
+    '    'Dim idfile As Integer = Convert.ToInt32(Session("idFile").ToString)
+    '    Dim idfile As Integer = Convert.ToInt32(hdIDfile("value").ToString)
+    '    If cmbNguoinhan.Tokens.Count > 0 Then
+    '        Dim i As Integer
+    '        Dim arr As String() = cmbNguoinhan.Value.ToString.Split(",")
+    '        For i = 0 To arr.Count - 1
+    '            res = serv.Thietlaptaikhoanky(idfile, arr(i), 0, String.Empty, String.Empty, String.Empty, String.Empty, Session("user").ToString)
+    '            serv.GuiVB_Capnhatchitietguinguoinhan(idfile, arr(i))
+    '        Next
+    '        serv.GuiVB_CapnhatTTVB(idfile)
+    '    End If
 
-        e.Result = res
-    End Sub
+    '    e.Result = res
+    'End Sub
 
     Private Sub Taoyeucauky_Load(sender As Object, e As EventArgs) Handles Me.Load
-
         If Not IsPostBack Then
             hdUser("value") = String.Empty
             hdIDfile("value") = String.Empty
