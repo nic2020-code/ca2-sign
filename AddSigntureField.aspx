@@ -23,7 +23,7 @@
     <form id="form1" runat="server">
   <header id="nav" class="sticky-nav">
     <div class="close">
-      <div class="file-name">Hợp đồng dịch vụ VMI-NACENCOMM 13.7.20.docx.</div>
+      <div class="file-name" id="filename"></div>
     </div>
     <div class="nav-right">
       <div class="nav-divider"></div>
@@ -85,17 +85,10 @@
   <script src="Scripts/js/add-signature-field.js"></script>
          <script type="text/javascript">
             $(document).ready(function () {
-               
-            $.ajax({
-                type: "POST",
-                url: "AddSigntureField.aspx/GetHoTen",         
-                contentType: "application/json; charset=utf-8",
-                data:"{}",
-                dataType: "json",
-                success: function (result) {
-                    alert(result);
+                var sessionValue = '<%= Session("Namefile") %>';
+                if (sessionValue != null) {
+                    document.getElementById("filename").innerHTML = sessionValue;
                 }
-            });
             });
         </script>
         </form>

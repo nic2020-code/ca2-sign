@@ -1,6 +1,10 @@
 ﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="AddReceivee.aspx.vb" Inherits="AddReceivee" %>
 
+<%@ Register Assembly="DevExpress.Web.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+
 <!DOCTYPE html>
+
+
 <!--  This site was created in Webflow. http://www.webflow.com  -->
 <!--  Last Published: Tue Jan 19 2021 02:07:46 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="600012b31e4e340d940f06c8" data-wf-site="5fc9e8d6d24a3a09aec5cdc3">
@@ -26,12 +30,6 @@
                 (n.className += t + "touch");
         })(window, document);
     </script>
-    <style>
-        .order-text {
-            width: 32px;
-            height: 32px;
-        }
-    </style>
     <link href="Content/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/images/webclip.png" rel="apple-touch-icon" />
 </head>
@@ -129,129 +127,75 @@
                         </label>
                     </div>
                 </div>
-
-                <div id="recipient-list">
-                    <%--    <div id="original-recipient-block" class="recipient1">
-                        <div class="long-dashed-line">
-                            <img src="images/Line 130.png" loading="lazy" alt="" />
-                            <div class="order-rectangle">
-                                      <asp:TextBox ID="txtttKy" runat="server" CssClass="order-text w-hidden"></asp:TextBox>
-                               <input id="order-input" type="text" name="recipient[][order]" class="order-text w-hidden">
+                <form action="add-signature-field.html" class="add-receiver-area">
+                    <div id="recipient-list">
+                        <div id="original-recipient-block" class="recipient">
+                            <div class="long-dashed-line">
+                                <img src="Content/images/Line 130.png" loading="lazy" alt="" />
+                                <div class="order-rectangle">
+                                    <input id="order-input" type="text" name="recipient[][order]"
+                                        class="order-text w-hidden">
+                                </div>
+                                <img src="Content/images/Line 130.png" loading="lazy" alt="" />
                             </div>
-                            <img src="images/Line 130.png" loading="lazy" alt="" />
-                        </div class>
-                        <div class="add-receiver-container">
-                            <div class="info-receiver">
-                                <div class="info-card">
-                                    <div class="form-container">
-                                        <div class="form-block w-form">
-                                            <div class="name-container">
-                                                <label for="name" class="label-text">Tên người nhận</label>
-                                                <div class="name-field">
-                                                   <input type="text" class="text-field-3 w-input" name="recipient[][name]"
-                                                    pattern="^[\p{L}\s-]+$" placeholder="Nhập tên người nhận" required />
-                                                    <asp:TextBox ID="txtEmail" runat="server" CssClass="text-field-3 w-input"></asp:TextBox>
-                                                    <a href="#" class="eye-icon w-inline-block"><img
-                                                            src="Content/images/Contact-Icon.png" loading="lazy" alt=""
-                                                            class="eye-image" /></a>
+                            <div class="add-receiver-container">
+                                <div class="info-receiver">
+                                    <div class="info-card">
+                                        <div class="form-container">
+                                            <div class="form-block w-form">
+                                                <div class="name-container">
+                                                    <label for="name" class="label-text">Tên người nhận</label>
+                                                    <div class="name-field">
+                                                        <input id="name1" type="text" name="namenn" class="text-field-3 w-input"
+                                                            placeholder="Nhập tên người nhận" />
+                                                        <a href="#" class="eye-icon w-inline-block">
+                                                            <img
+                                                                src="Content/images/Contact-Icon.png" loading="lazy" alt=""
+                                                                class="eye-image" /></a>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label for="email" class="label-text">Email</label>
+                                                    <input id="email1" type="email" name="email" class="text-field-2 w-input"
+                                                        placeholder="Nhập Email người nhận" />
                                                 </div>
                                             </div>
-                                            <div>
-                                                <label for="email" class="label-text">Email</label>
-                                                <input type="email" class="text-field-2 w-input" name="recipient[][email]"
-                                                    placeholder="Nhập Email người nhận" required />
-                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="dropdown-container">
-                                        <div class="w-dropdown">
-                                            <div class="dropdown-toggle-4 w-dropdown-toggle">
-                                              <select class="dropdown-text" name="recipient[][action]" id="role-sign">
-                                                    <option value="sign-now">Ký tài liệu</option>
-                                                    <option value="receive-a-copy">Nhận bản sao</option>
-                                                </select>
-                                            
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>--%>
-                    <div id="new-recipient-block" class="recipient">
-                        <div class="long-dashed-line">
-                            <img src="Content/images/Line 130.png" loading="lazy" alt="" />
-                            <div class="order-rectangle">
-                                <asp:TextBox ID="txtttKy" runat="server" CssClass="order-text w-hidden"></asp:TextBox>
-                                <input id="order-input" type="text" name="recipient[][order]" class="order-text w-hidden" />
-                            </div>
-                            <img src="Content/images/Line 130.png" loading="lazy" alt="" />
-                        </div>
-                        <div class="add-receiver-container">
-                            <div class="info-receiver">
-                                <div class="info-card">
-                                    <div class="form-container">
-                                        <div class="form-block w-form">
-                                            <div class="name-container">
-                                                <label for="name" class="label-text">Tên người nhận</label>
-                                                <div class="name-field">
-                                                    <asp:TextBox ID="txtHoten" runat="server" CssClass="text-field-3 w-input"></asp:TextBox>
-                                                    <%-- <input type="text" class="text-field-3 w-input" name="recipient[][name]"
-                                                    pattern="^[\p{L}\s-]+$" placeholder="Nhập tên người nhận" required />--%>
-                                                    <a href="#" class="eye-icon w-inline-block">
-                                                        <img
-                                                            src="Content/images/Contact-Icon.png" loading="lazy" alt=""
-                                                            class="eye-image" /></a>
+                                        <div class="dropdown-container">
+                                            <div class="w-dropdown">
+                                                <div class="dropdown-toggle-4 w-dropdown-toggle">
+                                                    <select class="dropdown-text" name="selectpt" id="role-sign1">
+                                                        <option value="0">Ký điện tử</option>
+                                                        <option value="1">Ký số</option>
+                                                        <option value="2">Xem</option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <div>
-                                                <label for="email" class="label-text">Email</label>
-                                                <asp:TextBox ID="txtEmail" runat="server" CssClass="text-field-2 w-input"></asp:TextBox>
-                                                <%--  <input type="email" class="text-field-2 w-input" name="recipient[][email]"
-                                                    placeholder="Nhập Email người nhận" required />--%>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-container">
-                                        <div class="w-dropdown">
-                                            <div class="dropdown-toggle-4 w-dropdown-toggle">
-                                                <asp:DropDownList ID="drhtKy" runat="server" CssClass="dropdown-text">
-                                                    <asp:ListItem Value="0">Ký điện tử</asp:ListItem>
-                                                    <asp:ListItem Value="1">Ký số</asp:ListItem>
-                                                    <asp:ListItem Value="2">Xem</asp:ListItem>
-                                                </asp:DropDownList>
-                                                <%--  <select class="dropdown-text" name="recipient[][action]" id="drd">
-                                                    <option value="0">Ký tài liệu</option>
-                                                    <option value="1">Nhận bản sao</option>
-                                                    <option value="2">Nhận bản sao</option>
-                                                </select>--%>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="delete-btn" class="delete-card">
-                                    <a href="#" class="delete-button">
-                                        <img class="delete-recipient-button" src="Content/images/Delete-Icon.png"
-                                            loading="lazy" alt="" />
-                                    </a>
-                                </div>
+                            </div>
+                            <div class="delete-card">
+                                <a href="#" class="delete-button">
+                                    <img class="delete-recipient-button" src="Content/images/Delete-Icon.png" loading="lazy"
+                                        alt="" />
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="add-margin">
-                    <div class="add-button-container">
-                        <a href="#" id="add-recipient-button" class="add-person-button w-button">Thêm người nhận</a>
-                        <div class="button-divider"></div>
-                        <a href="#" class="add-contact-button w-button">Thêm từ danh bạ</a>
+                    <div class="add-margin">
+                        <div class="add-button-container">
+                            <a href="#" id="add-recipient-button" class="add-person-button w-button">Thêm người nhận</a>
+                            <div class="button-divider"></div>
+                            <a href="#" class="add-contact-button w-button">Thêm từ danh bạ</a>
+                        </div>
+                        <div class="add-receiver-button">
+                            <a href="upload-file.html" class="back-button w-button">Quay lại</a>
+                            <%--  <button class="next-button w-button" type="submit">Tiếp tục</button>--%>
+                            <asp:Button ID="btnAddRecei" runat="server" Text="Tiếp tục" CssClass="next-button w-button" />
+                        </div>
                     </div>
-                    <div class="add-receiver-button">
-                        <a href="upload-file.html" class="back-button w-button">Quay lại</a>
-                        <%--    <button class="next-button w-button" type="submit">Tiếp tục</button>--%>
-                        <asp:Button ID="btnAddRecei" runat="server" Text="Tiếp tục" CssClass="next-button w-button" OnClick="btnAddRecei_Click" />
-                    </div>
-                </div>
-
+                </form>
             </div>
         </div>
         <div class="footer">
@@ -276,32 +220,78 @@
                 </div>
             </div>
         </div>
-        <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5fc9e8d6d24a3a09aec5cdc3"
-            type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-            crossorigin="anonymous"></script>
+        <script src="Scripts/jquery-3.3.1.min.js"></script>
         <script src="Scripts/js/webflow.js" type="text/javascript"></script>
         <script src="Scripts/js/pages/create-signature-request.js"></script>
-        <script src="Scripts/js/webflow.js" type="text/javascript"></script>
         <script type="text/javascript">
             $(document).ready(function () {
-                $("#txtEmail").attr("placeholder", "Nhập Email người nhận");
+
                 var sessionValue = '<%= Session("Name") %>';
                 if (sessionValue != null) {
                     document.getElementById("nameSend").innerHTML = sessionValue;
                 }
-                $("#txtEmail").attr("placeholder", "Nhập Email người nhận");
-                $("#txtHoten").attr("placeholder", "Nhập tên người nhận");
+                $("#email").attr("placeholder", "Nhập Email người nhận");
+                $("#name").attr("placeholder", "Nhập tên người nhận");
             });
         </script>
-        <%--  <script>
-            var i = 0;
-            $("#add-recipient-button").click(function () {           
-                i += 1;
-                localStorage.setItem("test", i);
-    
+        <script type="text/javascript">
+
+            $("#btnAddRecei").click(function () {
+
+                var ttk = document.getElementById('order-input').value;
+                localStorage.setItem("ttk", ttk);
+                var allInput = document.getElementsByName('email');
+                var allSelect = document.getElementsByName('selectpt');
+                var allName = document.getElementsByName('namenn');
+                var q = [];
+                var s = [];
+                var n = [];
+                var r = [];
+                for (var i = 0; i < allInput.length; i++) {
+                    if (allInput[i].type == 'email') {
+                        q.push(allInput[i].value);
+                    }
+                    localStorage.setItem("email", q);
+                }
+                for (var k = 0; k < allName.length; k++) {
+                    if (allName[k].type == 'text') {
+                        n.push(allName[k].value);
+                    }
+                    localStorage.setItem("name", n);
+                }
+                for (var j = 0; j < allSelect.length; j++) {
+                    s.push(allSelect[j].value);
+
+                }
+              
+                localStorage.setItem("htk", r);
+                localStorage.setItem("htky", s);
+                var htky = localStorage.getItem("htky");
+                var email = localStorage.getItem("email");
+                cpAddrecei.PerformCallback(ttk + "|" + htky + "|" + email);
+
             });
-        </script>--%>
+
+
+            function Addcomp(s, e) {
+             
+                if (e.result != null) {
+               
+                    if (e.result == 1) {
+                        window.location.href = 'AddSigntureField.aspx';
+                    } else if (e.result == 0) {
+                        alert("Thiết lập tài khoản nhận ký không thành công");
+                    } else if (e.result == -1) {
+                        alert("Lỗi hệ thống");
+                    }
+                }
+            }
+        </script>
+        <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
     </form>
+    <dx:ASPxCallback ID="cpaddrecei" runat="server" OnCallback="cpaddrecei_Callback" ClientInstanceName="cpAddrecei">
+        <ClientSideEvents CallbackComplete="Addcomp" />
+    </dx:ASPxCallback>
 </body>
 
 </html>

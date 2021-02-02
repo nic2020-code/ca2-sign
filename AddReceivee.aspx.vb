@@ -1,4 +1,6 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Web.Services
+
 Partial Class AddReceivee
     Inherits System.Web.UI.Page
     Public sConString As String = ConfigurationManager.ConnectionStrings("ConnectionString").ConnectionString
@@ -28,26 +30,25 @@ Partial Class AddReceivee
             Session("Name") = String.Empty
         End If
     End Sub
-    Protected Sub btnAddRecei_Click(sender As Object, e As EventArgs)
-        Dim htky As String = drhtKy.SelectedItem.Text
-        Dim a As Integer
-        If htky = "Ký điện tử" Then
-            a = 1
-        ElseIf htky = "Ký số" Then
-            a = 2
-        ElseIf htky = "Xem" Then
-            a = 3
-        End If
-
-        Dim idFile As Integer = Integer.Parse(Session("idFile").ToString())
-        Dim ttk As Integer = txtttKy.Text
+    Protected Sub cpaddrecei_Callback(source As Object, e As DevExpress.Web.CallbackEventArgs)
+        Dim idFile As Integer = Session("idFile").ToString()
         Dim tkt As String = Session("Login").ToString()
-        Dim tkk As String = txtEmail.Text
-        Dim arr As String() = tkt.Split(",")
+        Dim arr As String() = e.Parameter.Split("|")
+        Dim ttk As Integer = arr(0)
+        Dim a, b As String
+        a = arr(1)
+        b = arr(2)
+        Dim htk As String() = a.Split(",")
+        Dim tkk As String() = b.Split(",")
+        Dim i As Integer
         Dim serv As New swEDoc.apiEdoc
-        Dim res As Integer = serv.Thietlaptaikhoanky(idFile, tkk, ttk, htky, tkt)
-        If res = 1 Then
-            Response.Redirect("addsignturefield.aspx")
-        End If
+        Dim res As Integer = 0
+        For i = 0 To htk.Count - 1
+            res = serv.Thietlaptaikhoanky(idFile, tkk(i), ttk, htk(i), tkt)
+        Next
+        e.Result = res
+        'If res = 1 Then
+        '    Response.Redirect("AddSigntureField.aspx")
+        'End If
     End Sub
 End Class

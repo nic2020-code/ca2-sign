@@ -22,6 +22,7 @@ Partial Class UploadFile
             End If
             Dim ext, fullname, fileinput As String
             fullname = FileUpload1.FileName
+            Session("Namefile") = fullname
             ext = Path.GetExtension(FileUpload1.FileName)
             Dim temp As String() = fullname.Split(".")
             fileinput = drname & temp(0) & "_" & Path.GetRandomFileName & ext
